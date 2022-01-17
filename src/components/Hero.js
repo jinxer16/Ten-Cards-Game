@@ -388,6 +388,7 @@ function Hero() {
                 let winnerPool = await contractOf.methods.checkwinnerpool().call();
                 let startTime = await contractOf.methods.startTime().call();
                 let rewards = await contractOf.methods.rewarded(accountAd).call();
+                rewards= web3.utils.fromWei(rewards);
                 startTime = currentTime - startTime;
                 let myMinutes = startTime / 60;
                 myMinutes = parseInt(myMinutes);
