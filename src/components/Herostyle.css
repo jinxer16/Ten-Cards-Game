@@ -1,0 +1,27 @@
+
+
+
+.marginhere{
+    margin-top: 15rem !important;
+}
+
+
+
+
+.Wincardhere{
+    margin-left: 9rem !important;
+    margin-top: 4rem !important;
+}
+
+
+@media (min-width:280px) and (max-width:480px) {
+
+
+    .Wincardhere{
+        margin-left: 0rem !important;
+        margin-top: 0rem !important;
+        display: flex;
+        justify-content: end !important;
+    }
+    
+}
