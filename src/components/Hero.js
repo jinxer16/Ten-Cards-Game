@@ -58,7 +58,7 @@ function Hero() {
     const selectImage = (e) => {
         setSelected(!selected);
         let myId = e.target.id;
-        console.log("You Clicked", myId);
+        // console.log("You Clicked", myId);
     }
 
     // state for bet amount calculation
@@ -192,12 +192,14 @@ function Hero() {
             const web3 = window.web3;
             setButton("Please wait while processing...");
             setButtonState(true);
-            console.log("Value", contractStarttime)
+            // console.log("Value", contractStarttime)
             try {
                 console.log(account)
                 let contract = new web3.eth.Contract(abi, contractAddress);
                 let tokenContract = new web3.eth.Contract(tokenAbi, tokenAddress);
                 // if (value >= 100 && value <= 40000) {
+                    console.log("User Entered = " , value)
+                    console.log("User Passed = " , web3.utils.toWei(value))
                 await tokenContract.methods.approve(contractAddress, web3.utils.toWei(value)).send({ from: account })
                     .then(async (output) => {
                         await contract.methods.bet(modal, web3.utils.toWei(value)).send({
@@ -400,7 +402,7 @@ function Hero() {
 
 
                 if (startTime > 480 && startTime < 500) {
-                    console.log("here12", startTime);
+                    console.log("Calculating time", startTime);
                     setTimercalcuate(true);
                 } else if (startTime == 597) {
                     console.log("here122", startTime);
@@ -424,13 +426,13 @@ function Hero() {
 
     }
 
+ 
 
     useEffect(() => {
-
         setInterval(() => {
 
             getData();
-        }, 1000);
+        }, 800);
         loadWeb3();
     }, [timerCalculate]);
 
@@ -715,7 +717,7 @@ function Hero() {
                                             <div>
                                                 {timerCalculate ?
                                                     <h2 className="text-4xl text-main font-semibold" >
-                                                        Calculatiog Profit...
+                                                        Calculating Profit...
                                                     </h2> : <></>
                                                 }
                                             </div>
@@ -723,7 +725,7 @@ function Hero() {
 
                                             <div className='flex flex-row items-center justify-between'>
                                                 <div>
-                                                    <h3 className='text-4xl text-main font-semibold'>You Rewards</h3>
+                                                    <h3 className='text-4xl text-main font-semibold'>Your Rewards</h3>
                                                 </div>
                                                 <div>
                                                     <h6 className='text-4xl text-main font-semibold'>{userRewards}</h6>
