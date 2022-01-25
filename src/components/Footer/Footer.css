@@ -1,0 +1,60 @@
+.footerdivhere{
+
+
+    background-color: #f7bc41 !important;
+    height: 6vh !important;
+   
+}
+.innerdivfooerhere{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+
+
+
+
+
+@media (min-width:280px) and (max-width:480px) {
+    .footerdivhere{
+/* margin-top: 2rem; */
+
+        background-color: #f7bc41;
+        height: 18vh !important;
+    }
+    .innerdivfooerhere{
+        margin-top: -2rem;
+    }
+
+    .pppp{
+        margin-top: 2rem;
+    }
+
+
+}
+
+
+
+@media (min-width:480px) and (max-width:3000px) {
+    .innerdivfooerhere p{
+        /* margin-top: 0.5rem; */
+        font-size: 25px !important;
+            }
+
+
+            .footerdivhere{
+                /* margin-top: 2rem; */
+                
+                        background-color: #ffba00;
+                        height: 20vh !important;
+                    }
+
+                    .pppp{
+                        margin-top: 1rem;
+                    }
+                
+            
+}

@@ -391,6 +391,7 @@ function Hero() {
                 let startTime = await contractOf.methods.startTime().call();
                 let rewards = await contractOf.methods.rewarded(accountAd).call();
                 rewards= web3.utils.fromWei(rewards);
+                rewards= parseFloat(rewards).toFixed(3)
                 startTime = currentTime - startTime;
                 let myMinutes = startTime / 60;
                 myMinutes = parseInt(myMinutes);
@@ -665,7 +666,7 @@ function Hero() {
                 }
             </div>
             <div className="row marginhere" >
-                <div className="col-lg-6">
+            <div className="col-lg-6">
                     <div className="Wincardhere" >
                         <div>
 
@@ -673,9 +674,9 @@ function Hero() {
                             {
                                 userWonCard.map((items) => {
                                     return (
-                                        <div >
-                                            <h2 className="text-4xl text-main font-semibold">Win Card</h2><br />
-                                            <img src={items.imgSrc} alt="User Winning Card" width="50%" className='ml-10' />
+                                        <div className='textdivinwonsection' >
+                                            <h2 className="text-4xl  text-main font-semibold xsm:text-md ">Win Card</h2><br />
+                                            <img src={items.imgSrc} alt="User Winning Card" width="50%" className='ml-10 cardherewon' />
 
                                         </div>
                                     )
@@ -689,8 +690,150 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-6" style={{ marginLeft: '-9rem' }}>
-                    <div className="mb-0 xl:ml-10 2xl:ml-0">
+                <div className="col-lg-6" >
+
+                <div className="mb-0 xl:ml-10 2xl:ml-0  cardinresponss">
+                        {
+                            comp ?
+                                (<div className=" md:mt-18 sm:mt-12 bg-dt-gr py-8 lg:py-12 md:py-10 sm:py-9 px-8 lg:px-12 md:px-10 sm:px-12 xsm:px-15" >
+
+
+
+                                    <ul className="  " >
+
+
+
+                                        <div className='row  textdiv' > 
+
+                                            <div className='flex flex-row items-center justify-between'>
+                                                <div className=''>
+                                                    <h2 className="text-4xl text-main font-semibold xsm:text-xl">Timer</h2>
+                                                </div>
+
+                                                <div >
+                                                    <p className="text-4xl text-main font-semibold xsm:text-xl">
+                                                        {minutes}:{secods} {/* {contractStarttime} */}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                {timerCalculate ?
+                                                    <h2 className="text-4xl text-main font-semibold xsm:text-xl" >
+                                                        Calculatiog Profit...
+                                                    </h2> : <></>
+                                                }
+                                            </div>
+
+
+                                            <div className='flex flex-row items-center justify-between'>
+                                                <div>
+                                                    <h3 className='text-4xl text-main font-semibold xsm:text-xl'>Your Rewards</h3>
+                                                </div>
+                                                <div>
+                                                    <h6 className='text-4xl text-main font-semibold xsm:text-xl'>{userRewards}</h6>
+                                                </div>
+                                            </div>
+
+                                            <button className="bg-main-color px-8 xsm:px-1 rounded mt-10 w-full  lg:py-4 xsm:py-2 md:py-4 font-bold disabled:bg-header0 text-xl xsm:text-xl " onClick={() => withDrawal()} >Withdraw</button>
+                                        </div>
+                                    </ul>
+                                </div>
+                                )
+                                :
+                                compWithdraw ?
+                                    (<div className="h-auto w-12/12 mt-6 lg:mt-28 md:mt-18 sm:mt-12 bg-dt-gr py-2 lg:py-6 md:py-6 sm:py-4 px-2 lg:px-6 md:px-6 sm:px-4">
+                                        <h2 className="text-4xl text-main font-semibold">Checkout</h2>
+                                        <div className="py-4 px-4 bg-dark flex flex-row justify-between mt-4">
+                                            <label className="text-main text-xl font-semibold">Item</label>
+                                            <label className="text-main text-xl font-semibold">Quantity</label>
+                                            <label className="text-main text-xl font-semibold">Bet amount</label>
+                                        </div>
+                                        <div className="mt-4 overflow-auto h-56">
+                                            {
+                                                cardList && cardList?.map((item, index) => {
+                                                    return (item[0] === "1") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={One} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                        (item[0] === "2") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={Two} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                            (item[0] === "3") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={Three} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                                (item[0] === "4") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={Four} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                                    (item[0] === "5") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={Five} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                                        (item[0] === "6") ? <div className="flex flex-row items-center justify-start sm:justify-start"><img src={Six} alt="img1" className="mr-4 mb-2 w-16 h-20" key={index} /><div className="ml-16 mr-24"><p className="text-white text-lg">1</p></div><div><p className="text-white text-lg mr-6"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div> :
+                                                                            null;
+                                                })
+                                            }
+                                        </div>
+                                    </div>
+                                    )
+                                    :
+                                    checkOut ?
+                                        (<div className=" mt-6 lg:mt-28 md:mt-18 sm:mt-12 bg-dt-gr py-8 lg:py-12 md:py-10 sm:py-9 px-8 lg:px-12 md:px-10 sm:px-9">
+                                            <h2 className="text-xl msm:text-4xl sm:text-4xl text-main font-semibold text-start">WITHDRAW AMOUNT</h2>
+                                            <Slider {...settings} className="w-96">
+
+                                                {cardList.map(item => {
+                                                    return (item[0] === "1") ? <div className="flex flex-row !important items-center justify-start sm:justify-start"><img src={One} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Wind Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 1 (WIND)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                        : (item[0] === "2") ? <div className="flex flex-row !important items-center justify-start sm:justify-start "><img src={Two} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Water Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 2 (WATER)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                            : (item[0] === "3") ? <div className="flex flex-row !important items-center justify-start sm:justify-start "><img src={Three} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Fire Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 3 (FIRE)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                                : (item[0] === "4") ? <div className="flex flex-row !important items-center justify-start sm:justify-start "><img src={Four} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Light Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 4 (LIGHT)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                                    : (item[0] === "5") ? <div className="flex flex-row !important items-center justify-start sm:justify-start "><img src={Five} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Earth Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 5 (EARTH)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                                        : (item[0] === "6") ? <div className="flex flex-row !important items-center justify-start sm:justify-start "><img src={Six} alt="img1" className="mr-4 mb-4 w-30 h-48 mt-6" /><div><h4 className="text-main text-xl font-semibold">#2021 Dark Roboxpro</h4><h3 className="text-main text-xl sm:text-2xl font-bold">Level: 6 (DARK)</h3><p className="mt-6 text-main font-semibold text-lg">Your Reward:</p><p className="text-white text-lg"> {Web3.utils.fromWei(item[1])} ROBOX</p></div></div>
+                                                                            : null
+
+                                                })
+                                                }
+
+                                            </Slider>
+                                        </div>
+                                        ) :
+                                        (
+                                            <div className=" mt-6 lg:mt-28 md:mt-18 sm:mt-12 bg-dt-gr py-8 lg:py-12 md:py-10 sm:py-9 px-8 lg:px-12 md:px-10 sm:px-9 flex flex-col justify-center items-center">
+                                                <h2 className="text-xl msm:text-4xl sm:text-4xl text-main font-semibold text-start">CONGRATULATIONS</h2>
+                                                <img src={Congratulation} alt="congrats" className="mt-12" />
+                                            </div>
+                                        )
+
+                        }
+
+                        <div className="  py-8 lg:py-12 md:py-10 sm:py-9 px-8 lg:px-12 md:px-10 sm:px-9">
+                            {
+                                comp ?
+                                    <>
+
+                                        <li className=" hidden text-pure-white text-base sm:text-lg md:text-xl lg:text-xl">10 Pool card can be selected with random game.</li>
+
+                                    </>
+                                    :
+                                    compWithdraw ?
+
+                                        <div className="mt-6 flex flex-col">
+                                            <hr />
+                                            <div className="flex flex-row justify-between">
+                                                <h3 className="sm:text-2xl xsm:text-lg md:text-lg text-main font-semibold my-4">Total</h3>
+                                                <h3 className="sm:text-2xl xsm:text-lg md:text-lg text-white font-semibold my-4">{total}</h3>
+                                            </div>
+                                            <hr />
+                                            <button className="bg-main-color px-3 rounded mt-10 w-full py-4 font-bold disabled:bg-header0" onClick={handleCheckout}>{withDrawButton}</button>
+                                        </div>
+                                        :
+                                        checkOut ?
+                                            <div className="mt-6 flex flex-col">
+                                                <p className="py-3 text-white text-center">Click withdraw button to send token to your wallet</p>
+                                                <button className="bg-main-color px-3 rounded mt-10 w-full py-4 font-bold disabled:bg-header0" onClick={handleWithdraw} disabled={buttonState}>{withDraw}</button>
+                                            </div>
+                                            :
+                                            <div className="mt-6 flex flex-col">
+                                                <button className="bg-main-color px-3 rounded mt-10 w-full py-4 font-bold disabled:bg-header0" onClick={handleCongrats} disabled={buttonState}>{withDraw}</button>
+                                            </div>
+                            }
+                        </div>
+                        <br />
+                    </div>
+
+
+
+
+
+
+                    {/* <div className="mb-0 xl:ml-10 2xl:ml-0">
                         {
                             comp ?
                                 (<div className=" md:mt-18 sm:mt-12 bg-dt-gr py-8 lg:py-12 md:py-10 sm:py-9 px-8 lg:px-12 md:px-10 sm:px-9">
@@ -710,7 +853,7 @@ function Hero() {
 
                                                 <div >
                                                     <p className="text-4xl text-main font-semibold">
-                                                        {minutes}:{secods} {/* {contractStarttime} */}
+                                                        {minutes}:{secods} 
                                                     </p>
                                                 </div>
                                             </div>
@@ -824,7 +967,7 @@ function Hero() {
                             }
                         </div>
                         <br />
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

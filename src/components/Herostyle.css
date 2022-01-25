@@ -1,8 +1,6 @@
-
-
-
 .marginhere{
-    margin-top: 15rem !important;
+    margin-top: 5rem !important;
+    /* margin-bottom: 3rem; */
 }
 
 
@@ -10,7 +8,15 @@
 
 .Wincardhere{
     margin-left: 9rem !important;
-    margin-top: 4rem !important;
+    margin-top: 0rem !important;
+   
+}
+.textdivinwonsection h2{
+    margin-left: 3rem;
+}
+
+.cardinresponss{
+    margin-left: -9rem;
 }
 
 
@@ -18,10 +24,79 @@
 
 
     .Wincardhere{
+        margin-left:0rem !important;
+        margin-top: 5rem !important;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center !important;
+    }
+
+    .cardinresponss{
+        margin-left: -0.3rem;
+        margin-top: 2rem;
+    }
+
+    .textdiv{
+       margin-left: -2.8rem !important;
+       margin-top: 5rem;
+    }
+
+    .textdivinwonsection h2{
+        margin-left: 2rem;
+    }
+    
+}
+
+
+@media (min-width:481px) and (max-width:768px) {
+
+
+    .Wincardhere{
         margin-left: 0rem !important;
         margin-top: 0rem !important;
         display: flex;
-        justify-content: end !important;
+        justify-content: center !important;
     }
-    
+
+    .cardinresponss{
+        margin-left: -0.3rem;
+    }
+
+    .textdiv{
+       margin-left: -2.8rem !important;
+    }
+    .textdivinwonsection h2{
+        margin-left: 3rem;
+    }
+    .cardherewon{
+        width: 15rem !important;
+    }
+}
+
+
+
+@media (min-width:769px) and (max-width:1024px) {
+
+
+    .Wincardhere{
+        margin-left: 0rem !important;
+        margin-top: 2rem !important;
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .cardinresponss{
+        margin-left: -0.3rem;
+    }
+
+    .textdiv{
+       margin-left: -2.8rem !important;
+    }
+    .textdivinwonsection h2{
+        margin-left: 3rem;
+    }
+    .cardherewon{
+        width: 12rem !important;
+    }
 }
