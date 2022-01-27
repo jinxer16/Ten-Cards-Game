@@ -22,10 +22,14 @@
 
 @media (min-width:280px) and (max-width:480px) {
 
-
+    .btnwithdrawhere{
+        display: flex;
+        width: auto !important;
+        justify-content: center;
+    }
     .Wincardhere{
         margin-left:0rem !important;
-        margin-top: 5rem !important;
+        margin-top: 2rem !important;
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -33,13 +37,13 @@
     }
 
     .cardinresponss{
-        margin-left: -0.3rem;
+        margin-left: 0;
         margin-top: 2rem;
     }
 
     .textdiv{
-       margin-left: -2.8rem !important;
-       margin-top: 5rem;
+       margin-left: 0 !important;
+       margin-top: 2rem;
     }
 
     .textdivinwonsection h2{

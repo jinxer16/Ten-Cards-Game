@@ -703,7 +703,7 @@ function Hero() {
 
 
 
-                                        <div className='row  textdiv' > 
+                                        <div className='row btnwithdrawhere  textdiv' > 
 
                                             <div className='flex flex-row items-center justify-between'>
                                                 <div className=''>
@@ -725,7 +725,7 @@ function Hero() {
                                             </div>
 
 
-                                            <div className='flex flex-row items-center justify-between'>
+                                            <div className='flex flex-row  items-center justify-between'>
                                                 <div>
                                                     <h3 className='text-4xl text-main font-semibold xsm:text-xl'>Your Rewards</h3>
                                                 </div>
@@ -733,8 +733,10 @@ function Hero() {
                                                     <h6 className='text-4xl text-main font-semibold xsm:text-xl'>{userRewards}</h6>
                                                 </div>
                                             </div>
+                                                <div >
+                                                <button className="bg-main-color  px-8 xsm:px-1 rounded mt-10 w-full  lg:py-4 xsm:py-2 md:py-4 font-bold disabled:bg-header0 text-xl xsm:text-xl " onClick={() => withDrawal()} >Withdraw</button>
 
-                                            <button className="bg-main-color px-8 xsm:px-1 rounded mt-10 w-full  lg:py-4 xsm:py-2 md:py-4 font-bold disabled:bg-header0 text-xl xsm:text-xl " onClick={() => withDrawal()} >Withdraw</button>
+                                                </div>
                                         </div>
                                     </ul>
                                 </div>
