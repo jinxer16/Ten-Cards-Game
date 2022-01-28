@@ -387,8 +387,9 @@ function Hero() {
                 let currentTime = Math.floor(new Date().getTime() / 1000.0)
                 const web3 = window.web3;
                 let contractOf = new web3.eth.Contract(abi, contractAddress);
-                let winnerPool = await contractOf.methods.checkwinnerpool().call();
+                let winnerPool = await contractOf.methods.winnerpool().call();
                 let startTime = await contractOf.methods.startTime().call();
+                console.log("Strt time",startTime);
                 let rewards = await contractOf.methods.rewarded(accountAd).call();
                 rewards= web3.utils.fromWei(rewards);
                 rewards= parseFloat(rewards).toFixed(3)
@@ -399,7 +400,7 @@ function Hero() {
                 setMinutes(myMinutes);
                 setSeconds(Seconds);
                 console.log("Minutes: ", parseInt(myMinutes));
-                console.log("Seconds: ", Seconds);
+                console.log("Seconds: ", startTime);
 
 
                 if (startTime > 480 && startTime < 500) {
