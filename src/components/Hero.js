@@ -144,7 +144,7 @@ function Hero() {
                 setAccount(accountAd);
                 balanceOf()
             }
-            imgFun();
+            // imgFun();
         } catch (error) {
             console.log("Error while connecting metamask", error);
         }
@@ -230,19 +230,19 @@ function Hero() {
     }
 
 
-    const imgFun = async () => {
-        const web3 = window.web3;
-        try {
-            let contract = new web3.eth.Contract(abi, contractAddress);
-            const card = await contract.methods.UserInfo(accountAd).call()
-            console.log(card[1])
-            setCards(card[1])
-            console.log(card[1])
-        } catch (error) {
-            console.log("Error while fetching acounts: ", error);
+    // const imgFun = async () => {
+    //     const web3 = window.web3;
+    //     try {
+    //         let contract = new web3.eth.Contract(abi, contractAddress);
+    //         const card = await contract.methods.UserInfo(accountAd).call()
+    //         console.log(card[1])
+    //         setCards(card[1])
+    //         console.log(card[1])
+    //     } catch (error) {
+    //         console.log("Error while fetching acounts: ", error);
 
-        }
-    }
+    //     }
+    // }
 
     let cardsArray = []
     let indexesArray = []
@@ -422,7 +422,7 @@ function Hero() {
             }
 
         } catch (e) {
-            console.log("Error Wile Getting data")
+            console.log("Error Wile Getting data",e)
         }
 
     }
