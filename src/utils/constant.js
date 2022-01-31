@@ -1,4 +1,4 @@
-export const contractAddress = "0x4a4767672387d0124AaE8C4142f2e0767c585B81";
+export const contractAddress = "0x1DD5603463bc97098B8C312e1Cc3C0bAD6854e45";
 export const abi = [{
     "inputs": [{
         "internalType": "contract IBEP20",
